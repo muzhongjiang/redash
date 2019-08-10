@@ -13,19 +13,24 @@
       </button>
       <!-- REDASH LOGO -->
       <a class="navbar-brand" ng-href="{{ $ctrl.basePath }}"
-        ><img ng-src="{{ $ctrl.logoUrl }}"
-      /></a>
+        ><img ng-src="{{ $ctrl.logoUrl }}"/>
+      </a>
     </div>
     <div class="collapse navbar-collapse" uib-collapse="!isNavOpen">
       <!-- Main Left Nav-->
 
       <ul class="nav navbar-nav nav__main">
+        <li ng-show="$ctrl.currentUser.isAdmin">
+          <a href="data_sources" title="设置"
+          ><i class="fa fa-sliders" aria-hidden="true"></i
+          ></a>
+        </li>
         <li
           class="dropdown btn-group"
           ng-show="$ctrl.showDashboardsMenu"
           uib-dropdown
         >
-          <a class="btn" href="dashboards">Dashboards</a>
+          <a class="btn" href="dashboards">看板</a>
           <a type="button" class="btn hidden-xs" uib-dropdown-toggle>
             <span class="caret caret--nav"></span>
           </a>
@@ -36,7 +41,7 @@
                   <span class="btn-favourite">
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </span>
-                  Favorite Dashboards will appear here
+                  Favorite 看板 will appear here
                 </em>
               </a>
             </li>
@@ -52,7 +57,7 @@
           ng-show="$ctrl.showQueriesMenu"
           uib-dropdown
         >
-          <a class="btn" href="queries">Queries</a>
+          <a class="btn" href="queries">查询</a>
           <a type="button" class="btn hidden-xs" uib-dropdown-toggle>
             <span class="caret caret--nav"></span>
           </a>
@@ -63,7 +68,7 @@
                   <span class="btn-favourite">
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </span>
-                  Favorite Queries will appear here
+                  Favorite 查询 will appear here
                 </em>
               </a>
             </li>
@@ -75,7 +80,7 @@
           </ul>
         </li>
         <li ng-if="$ctrl.showAlertsLink">
-          <a href="alerts">Alerts</a>
+          <a href="alerts">告警</a>
         </li>
       </ul>
 
@@ -93,7 +98,7 @@
           uib-dropdown-toggle
           ng-disabled="disabled"
         >
-          Create <span class="caret caret--nav"></span>
+          新建 <span class="caret caret--nav"></span>
         </button>
         <ul
           class="dropdown-menu"
@@ -123,14 +128,7 @@
             class-name="'navbar-link-ANGULAR_REMOVE_ME'"
           ></help-trigger>
         </li>
-        <li ng-show="$ctrl.currentUser.isAdmin">
-          <a href="data_sources" title="Settings"
-            ><i class="fa fa-sliders" aria-hidden="true"></i
-          ></a>
-        </li>
-        <!--<li ng-show="$ctrl.showSettingsMenu">-->
-        <!--<a href="users" title="Settings"><i class="fa fa-cog"></i></a>-->
-        <!--</li>-->
+
         <li class="dropdown" uib-dropdown>
           <a
             href="#"
@@ -161,16 +159,16 @@
               <a href="data_sources" title="Data Sources">Data Sources</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="groups" title="Settings">Groups</a>
+              <a href="groups" title="设置">Groups</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="users" title="Settings">Users</a>
+              <a href="users" title="设置">Users</a>
             </li>
             <li>
               <a ng-href="query_snippets">Query Snippets</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="destinations" title="Settings">Alert Destinations</a>
+              <a href="destinations" title="设置">Alert Destinations</a>
             </li>
 
             <li
